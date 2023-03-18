@@ -1,5 +1,6 @@
 import './Expenses.css';
 import ExpenseItem from "./ExpenseItem";
+import Card from "./Card";
 
 
 
@@ -8,13 +9,15 @@ function Expenses(props)
 {
     console.log(props.expense_collection)
     let expenseItems = [];
-    props.expense_collection.forEach((expense, index)=> expenseItems.push(<ExpenseItem title={expense.title}
+    props.expense_collection.forEach((expense, index)=> expenseItems.push(<ExpenseItem
+                                                                        key={index}
+                                                                        title={expense.title}
                                                                        price={expense.price}
                                                                        date={expense.date}/>))
     return(
-        <div className="expenses">
+        <Card className="expenses">
             {expenseItems}
-        </div>
+        </Card>
     );
 }
 
