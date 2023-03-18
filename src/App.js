@@ -1,4 +1,5 @@
-import Expenses from "./components/Expenses";
+import React from "react";
+import Expenses from "./components/Expenses/Expenses";
 
 
 const expenses = [
@@ -8,7 +9,15 @@ const expenses = [
     {id: 'e4', title: 'Car Insurance', price: 298.5, date: new Date('2023-03-16')},
     {id: 'e5', title: 'Mouse pad', price: 3, date: new Date('2023-03-17')},
 ];
-function App() {
+const App = () => {
+    // OLD VERSION
+    // return React.createElement('div',
+    //     {},
+    //     [
+    //         React.createElement('h2',{}, 'Let\'s get started!'),
+    //         React.createElement(Expenses, {expense_collection:expenses},'')
+    //     ]);
+
     return (
         <div>
             <h2>Let's get started!</h2>
