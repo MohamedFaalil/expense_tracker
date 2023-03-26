@@ -9,19 +9,42 @@ const getCurrentDate = ()=>{
     return `${year}-${month}-${day}`;
 };
 const ExpenseForm = ()=>{
-    const[enteredTitle, setEnteredTitle] = useState('');
-    const[enteredAmount, setEnteredAmount] = useState('0.0');
-    const[enteredDate, setEnteredDate] = useState(getCurrentDate());
+    const nowDate = getCurrentDate();
+    // const[enteredTitle, setEnteredTitle] = useState('');
+    // const[enteredAmount, setEnteredAmount] = useState('0.0');
+    // const[enteredDate, setEnteredDate] = useState(getCurrentDate());
+    const [enteredUserInputs, setUserInputs] = useState({
+        enteredTitle: '',
+        enteredAmount: '0.0',
+        enteredDate: getCurrentDate()
+    });
     const titleChangeHandler = event =>{
-            setEnteredTitle(event.target.value);
+            // setEnteredTitle(event.target.value);
+        setUserInputs({
+            ...enteredUserInputs,
+            enteredTitle: event.target.value
+        });
+        console.log('title:',event.target.value);
     };
 
     const amountChangeHandler = event => {
-        setEnteredAmount(event.target.value);
+        // setEnteredAmount(event.target.value);
+        setUserInputs({
+            ...enteredUserInputs,
+            enteredAmount: event.target.value
+        });
+        console.log('title:',event.target.value);
+
     };
 
     const dateChangeHandler = event => {
-        setEnteredDate(event.target.value);
+        // setEnteredDate(event.target.value);
+        setUserInputs({
+            ...enteredUserInputs,
+            enteredDate: event.target.value
+        });
+        console.log('title:',event.target.value);
+
     };
 
 
@@ -30,16 +53,18 @@ const ExpenseForm = ()=>{
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" onChange={titleChangeHandler} value={enteredTitle}/>
+                    <input type="text" onChange={titleChangeHandler}
+                           value={enteredUserInputs.enteredTitle}
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
-                    <input type="number" min="0.1" step="0.01" value={enteredAmount}
+                    <input type="number" min="0.1" step="0.01" value={enteredUserInputs.enteredAmount}
                            onChange={amountChangeHandler}/>
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
-                    <input type="date" min="2019-01-01" max={enteredDate} value={enteredDate}
+                    <input type="date" min="2019-01-01" max={nowDate} value={enteredUserInputs.enteredDate}
                            onChange={dateChangeHandler}/>
                 </div>
                 <div className="new-expense__actions">
