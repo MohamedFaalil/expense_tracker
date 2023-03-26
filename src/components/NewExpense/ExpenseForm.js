@@ -61,6 +61,10 @@ const ExpenseForm = ()=>{
                 date: new Date(enteredDate)
         };
         console.log('form data', submittedFormData);
+
+        setEnteredTitle('');
+        setEnteredAmount('0.0');
+        setEnteredDate(getCurrentDate);
     };
 
     return (
