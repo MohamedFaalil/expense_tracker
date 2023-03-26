@@ -8,7 +8,7 @@ const getCurrentDate = ()=>{
     const day = date.toLocaleString('en-US', {day: 'numeric'});
     return `${year}-${month}-${day}`;
 };
-const ExpenseForm = ()=>{
+const ExpenseForm = (props)=>{
     const nowDate = getCurrentDate();
     const[enteredTitle, setEnteredTitle] = useState('');
     const[enteredAmount, setEnteredAmount] = useState('0.0');
@@ -60,7 +60,8 @@ const ExpenseForm = ()=>{
                 price: enteredAmount,
                 date: new Date(enteredDate)
         };
-        console.log('form data', submittedFormData);
+
+        props.onSaveExpenseData(submittedFormData);
 
         setEnteredTitle('');
         setEnteredAmount('0.0');
