@@ -6,7 +6,7 @@ import ExpensesFilter from "./ExpensesFilter";
 
 
 const Expenses = (props) => {
-    const [filterDate, setFilterDate] = useState(new Date().getFullYear());
+    const [filterDate, setFilterDate] = useState('2020');
     let expenseItems = [];
     props.expense_collection.forEach((expense, index) => expenseItems.push(<ExpenseItem
         key={index}
@@ -21,7 +21,7 @@ const Expenses = (props) => {
     return (
 
         <Card className="expenses">
-            <ExpensesFilter onFilterChangeData={filterChangeHandler}/>
+            <ExpensesFilter selectedYear={filterDate} onFilterChangeData={filterChangeHandler}/>
             {expenseItems}
         </Card>
     );
