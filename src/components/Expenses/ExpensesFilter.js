@@ -4,9 +4,10 @@ import './ExpensesFilter.css';
 
 const getLastFiveYears = ()=>{
     const date = new Date();
-    const dateCollection = [];
-    for(let i=0; i <= 5; i++){
-        dateCollection.push(date.setFullYear(date.getFullYear() - 1));
+    const dateCollection = [date.getFullYear().toString()];
+    for(let i=0; i < 4; i++){
+        date.setFullYear(date.getFullYear() - 1)
+        dateCollection.push(date.getFullYear().toString());
     }
     return dateCollection;
 };
@@ -21,11 +22,9 @@ const ExpensesFilter = (props) => {
                 <label>Filter by year</label>
                 <select onChange={yearChangeHandler} value={props.selectedYear}>
                     <option value='-1'>All</option>
-                    <option value='2023'>2023</option>
-                    <option value='2022'>2022</option>
-                    <option value='2021'>2021</option>
-                    <option value='2020'>2020</option>
-                    <option value='2019'>2019</option>
+                    {getLastFiveYears().map(year=> {
+                        return <option value={year}>{year}</option>;
+                    })}
                 </select>
             </div>
         </div>
