@@ -30,7 +30,7 @@ const ExpenseForm = (props)=>{
         //         enteredTitle: event.target.value
         //     };
         // })
-        console.log('title:',event.target.value);
+        // console.log('title:',event.target.value);
     };
 
     const amountChangeHandler = event => {
@@ -39,7 +39,7 @@ const ExpenseForm = (props)=>{
         //     ...enteredUserInputs,
         //     enteredAmount: event.target.value
         // });
-        console.log('title:',event.target.value);
+        // console.log('title:',event.target.value);
 
     };
 
@@ -49,7 +49,7 @@ const ExpenseForm = (props)=>{
         //     ...enteredUserInputs,
         //     enteredDate: event.target.value
         // });
-        console.log('title:',event.target.value);
+        // console.log('title:',event.target.value);
 
     };
 
