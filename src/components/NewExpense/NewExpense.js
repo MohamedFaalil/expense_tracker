@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import './NewExpense.css';
 import ExpenseForm from "./ExpenseForm";
-import AddExpenseBanner from "./AddExpenseBanner";
 const NewExpense = (props)=>{
     const [showNewExpenseFrmStatus, setShowNewExpenseFrmStatus] = useState(false);
     const saveExpenseDataHandler = (enteredExpenseData)=>{
@@ -17,7 +16,7 @@ const NewExpense = (props)=>{
     };
 
     return (<div className="new-expense">
-        {!showNewExpenseFrmStatus && <AddExpenseBanner onShowAddExpenseForm={showAddNewExpenseForm}/>}
+        {!showNewExpenseFrmStatus && <button onClick={showAddNewExpenseForm}>Add Expense</button>}
         {showNewExpenseFrmStatus && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}
                                                  onCloseExpenseForm={closeAddNewExpenseForm}/>}
     </div>);

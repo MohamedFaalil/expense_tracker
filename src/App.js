@@ -22,7 +22,7 @@ const App = () => {
         setExpenses((prevExpenses)=>{
             return [expense,...prevExpenses];
         });
-        closeAddNewExpenseForm(false);
+        closeAddNewExpenseForm();
         // setExpenses([expense, ...expenses]);
     };
 
