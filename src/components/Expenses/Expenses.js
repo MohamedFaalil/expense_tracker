@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import './Expenses.css';
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 
 
 const Expenses = (props) => {
@@ -19,21 +19,11 @@ const Expenses = (props) => {
         }
     };
 
-    let expenseContent = <p>No expense found</p>;
-    if(filteredList().length > 0){
-        expenseContent = filteredList().map(expense => {
-            return <ExpenseItem
-                key={expense.id}
-                title={expense.title}
-                price={expense.price}
-                date={expense.date}/>
-        });
-    }
 
     return (
         <Card className="expenses">
             <ExpensesFilter selectedYear={filterDate} onFilterChangeData={filterChangeHandler}/>
-            {expenseContent}
+            <ExpensesList items={filteredList()}/>
         </Card>
     );
 }
