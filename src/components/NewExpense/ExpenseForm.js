@@ -69,7 +69,7 @@ const ExpenseForm = (props)=>{
     };
 
     const cancelBtnHandler = ()=>{
-        props.onShowAddExpenseFormStatus(false);
+        props.onCloseExpenseForm();
     };
 
     return (

@@ -3,7 +3,7 @@ import Card from "../UI/Card";
 
 const AddExpenseBanner = (props)=>{
     const addNewExpenseFormHandler = ()=>{
-        props.onShowAddExpenseFormStatus(true);
+        props.onShowAddExpenseForm();
     };
 
     return (

@@ -17,12 +17,12 @@ const App = () => {
         const lastIdNumber = Number(lastIdPhrase.substring(1));
         return `e${lastIdNumber + 1}`;
     }
-    const addExpenseHandler = (expense, setShowNewExpenseFrmStatus) => {
+    const addExpenseHandler = (expense, closeAddNewExpenseForm) => {
         expense.id = getNewId();
         setExpenses((prevExpenses)=>{
             return [expense,...prevExpenses];
         });
-        setShowNewExpenseFrmStatus(false);
+        closeAddNewExpenseForm(false);
         // setExpenses([expense, ...expenses]);
     };
 
