@@ -23,7 +23,7 @@ const ExpensesFilter = (props) => {
                 <select onChange={yearChangeHandler} value={props.selectedYear}>
                     <option value='-1'>All</option>
                     {getLastFiveYears().map(year=> {
-                        return <option value={year}>{year}</option>;
+                        return <option value={year} key={year}>{year}</option>;
                     })}
                 </select>
             </div>
